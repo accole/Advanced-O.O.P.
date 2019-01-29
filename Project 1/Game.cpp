@@ -1,9 +1,6 @@
 //game.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #include "Game.h"
 #include "City.h"
