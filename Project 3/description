@@ -81,20 +81,8 @@ Once a normal piece (one without a special action) has come to rest at the botto
 Once a special piece (e.g. a VaporBomb) comes to rest, the program will apply the special action of the piece (e.g. vaporizing blocks above and below the piece). Next, the program must determine if one or more new rows were entirely filled due to the special action of the piece. If a row was entirely filled then it will be removed from the well, shifting all rows above the removed row down by one. If more than one row was completed at the same time, then all these rows will be removed and the rows above will be shifted down by the number of rows that were removed. 
 After a piece comes to rest and any completed rows have been removed, the next piece begins to fall from the top of the well. Each piece always starts in its default orientation (Orientation #0) 
 If, when a new piece is to be dropped into the well, there is no room for this piece (i.e. one or more of the blocks comprising the piece would immediately overlap another block which is already in the well from a previous piece), then the game is over. However, if the new piece can be placed in the well without overlapping any other blocks in the well, then the game continues (even if the newly-placed piece happens to be sitting one row above other blocks, since the player may be able to quickly shift the new piece to the right or left, possibly permitting it to descend further in the well). 
-All pieces are considered to be inscribed within a 4x4 bounding box. For example, consider the T piece below:    The following specifications show how each Chetyris piece must be considered inscribed within its 4x4 bounding box, with # signs representing the blocks in each piece: 
+All pieces are considered to be inscribed within a 4x4 bounding box.
 
-The VaporBomb
-
-##
-
-The FoamBomb
-
-#
-
-The CrazyShape
-
-#  #
- ##
 
 When a new piece is initially placed at the top of the well, the upper-left corner of its bounding box must be placed at offset X=3, Y=0 within the well. For example, consider the T shape in its default orientation (orientation #0):   In this case, the first # sign on the top row of the grid above would be placed at X=4, Y=0 within the well. In contrast, consider the I piece below:    Again, the upper-left corner of the bounding box will be placed at X=3, Y=0. In this case, since the bar, in its default orientation, occupies the second row of blocks, the left-most block of the bar would initially be placed at X=3, Y=1 of the well. The second left-most block would be placed at X=4, Y=1 of the well, as shown below:   
 When a new piece has been placed in its initial starting position in the well, there are two possibilities: 
