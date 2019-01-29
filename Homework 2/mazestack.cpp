@@ -1,10 +1,6 @@
 //mazestack.cpp
 //
-//Homework 2
-//problem 1
-//
-//Adam Cole
-//004912373
+//Homework 2 problem 1
 
 //#include <stack>
 #include <iostream>
@@ -41,29 +37,29 @@ private:
 	ItemType m_stack[SIZE];	//fixed array to store the stack of values
 };
 
-////methods
-//bool pathExists(char maze[][10], int sr, int sc, int er, int ec);
-//
-////int main
-//int main() {
-//	char maze[10][10] = {
-//		{ 'X','X','X','X','X','X','X','X','X','X' },
-//	{ 'X','.','.','.','.','.','.','.','.','X' },
-//	{ 'X','X','X','X','X','.','X','.','X','X' },
-//	{ 'X','.','.','.','X','.','X','.','.','X' },
-//	{ 'X','.','X','.','.','.','X','.','.','X' },
-//	{ 'X','.','X','X','X','.','X','X','X','X' },
-//	{ 'X','X','X','.','.','.','.','X','.','X' },
-//	{ 'X','.','X','X','.','X','X','X','.','X' },
-//	{ 'X','.','.','.','.','X','.','.','.','X' },
-//	{ 'X','X','X','X','X','X','X','X','X','X' }
-//	};
-//
-//	if (pathExists(maze, 6, 5, 1, 8))
-//		cout << "Solvable!" << endl;
-//	else
-//		cout << "Out of luck!" << endl;
-//}
+//methods
+bool pathExists(char maze[][10], int sr, int sc, int er, int ec);
+
+//int main
+int main() {
+	char maze[10][10] = {
+		{ 'X','X','X','X','X','X','X','X','X','X' },
+	{ 'X','.','.','.','.','.','.','.','.','X' },
+	{ 'X','X','X','X','X','.','X','.','X','X' },
+	{ 'X','.','.','.','X','.','X','.','.','X' },
+	{ 'X','.','X','.','.','.','X','.','.','X' },
+	{ 'X','.','X','X','X','.','X','X','X','X' },
+	{ 'X','X','X','.','.','.','.','X','.','X' },
+	{ 'X','.','X','X','.','X','X','X','.','X' },
+	{ 'X','.','.','.','.','X','.','.','.','X' },
+	{ 'X','X','X','X','X','X','X','X','X','X' }
+	};
+
+	if (pathExists(maze, 6, 5, 1, 8))
+		cout << "Solvable!" << endl;
+	else
+		cout << "Out of luck!" << endl;
+}
 
 //south = increasing r
 //north = decreasing r
