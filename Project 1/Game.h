@@ -1,9 +1,6 @@
 //game.h
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #ifndef GAME_H
 #define GAME_H
