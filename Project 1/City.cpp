@@ -1,9 +1,5 @@
 //city.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
 
 #include "City.h"
 #include "globals.h"
