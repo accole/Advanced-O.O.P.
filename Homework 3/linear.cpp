@@ -1,19 +1,15 @@
 //linear.cpp
 //
-//Adam Cole
-//004912373
-//
-//Homework 3
-//Problem 2
+//Homework 3 Problem 2
 
-//#include <string>
-//#include <iostream>
-//using namespace std;
+#include <string>
+#include <iostream>
+using namespace std;
 
-//temporary somePredicate to test
-//bool somePredicate(string s) {
-//	return s == "wallin";
-//}
+temporary somePredicate to test
+bool somePredicate(string s) {
+	return s == "wallin";
+}
 
 // Return false if the somePredicate function returns false for at
 // least one of the array elements; return true otherwise.
@@ -126,8 +122,8 @@ bool includes(const string a1[], int n1, const string a2[], int n2)
 	}
 }
 
-////main for testing
-//int main() {
-//	string s[5] = { "wallin", "wallin", "wallin", "wallin", "wallin" };
-//	cout << firstFalse(s, 5) << endl;
-//}
+//main for testing
+int main() {
+	string s[5] = { "wallin", "wallin", "wallin", "wallin", "wallin" };
+	cout << firstFalse(s, 5) << endl;
+}
