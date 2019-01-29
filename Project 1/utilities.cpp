@@ -1,9 +1,5 @@
 //utilities.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
 
 #include "globals.h"
 
