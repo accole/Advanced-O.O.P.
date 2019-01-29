@@ -13,7 +13,7 @@ Homework 3  - Recursion -  92/100
 
 Homework 4  - Big O Time Complexity -   100/100
 
-Homework 5    100/100
+Homework 5  - Trees -  100/100
 
 -------------------------
 
