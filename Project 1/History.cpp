@@ -1,9 +1,6 @@
 //history.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #include "History.h"
 #include "globals.h"
