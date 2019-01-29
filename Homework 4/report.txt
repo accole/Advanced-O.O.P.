@@ -1,0 +1,35 @@
+Adam Cole
+
+Homework 4
+
+
+	Sequence<Coord>::insert causes a compilation error when the function is called with only one parameter because the 
+  function with one parameter uses operators like <, <=, =, >, >=, etc. to determine the placement of the Coordinate 
+  in the linked list.  Specifically, the function uses the > operator, and there is no custom comparison operator > 
+  defined for the Coord class.  Therefore, the compiler has no way to differentiate which Coord is “bigger” than the 
+  other.
+
+	You wouldn’t be able to solve the recursive function if there was only one parameter because the function is void; 
+  Therefore, if the file has more than one directory, when the second directory is the file and goes into the recursive 
+  case, there will be no way for the output to trace all the way back to the very first directory and output the 
+  beginning to end.  You need the string path to concatenate the entire output the whole time.
+
+	The algorithm is of the time complexity O(N^3).  It is of this time complexity because the maximum number of times 
+  the first for loop will run is N times, and therefore the maximum number of times the second for loop will run is N^2 
+  times, and the maximum number of times the third for loop will run is N^3 times as well.  
+
+	The algorithm is of the time complexity O(N^3).  It is of this time complexity because the first for loop runs N times.  
+  The second for loop, while it runs up to “i” times, the maximum amount of times it will run is N-1 times.  At this 
+  point it runs O(N^2) times, and then the third for loop will still run a maximum of N^3 times.  Therefore, the O 
+  notation is O(N^3).
+
+	The algorithm is of the time complexity O(N^2).  The program will call the first for loop a linear amount of times, 
+  say N depending on the size of the two sequences.  Therefore, inside the for loop, the functions get and insert 
+  will both be called N times.  Both get and insert never run through for loops and are of order O(1), but the function 
+  nodeAtPos runs a for loop N/2 times, and they are both called in get and insert.  Therefore, N/2 run 1 time will 
+  result in N/2 function calls, and then in interleave, since N/2 executions run N times in a for loop, the order is 
+  of O(N^2).
+
+	Since insertBefore() never runs any loops and is therefore O(1), the algorithm is of time complexity O(N).  While 
+  the program runs two for loops, both running for N nodes in a linked list, it only calls insertBefore() of order O(1).  
+  O(1) called 2N times is of order O(N).
