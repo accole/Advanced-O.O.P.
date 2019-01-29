@@ -7,7 +7,7 @@ Well.h / Well.cpp
 
 
 Piece.h / Piece.cpp
-  •	Private Data
+  • Private Data
     o	char boundingbox[4][4]
       	A 4x4 character array to hold the current orientation of every piece
     o	int xpos, int ypos
@@ -23,7 +23,7 @@ Piece.h / Piece.cpp
       	Linked list, where the value in the linked list is a 4x4 character array with orientations 0-3 in one of the 4 nodes
     o	Node* m_head
       	Head node pointing to the Node with the current orientation
-  •	Member functions
+  • Member functions
     o	Piece() – Constructor
     o	Piece(const Piece& other) – Copy Constructor
     o	int getX() const
@@ -77,7 +77,7 @@ Piece.h / Piece.cpp
 
 
 Game.h / Game.cpp
-•	Private Data
+• Private Data
 o	Well m_well
 	Given to us in the skeleton
 o	Screen m_screen
@@ -91,7 +91,7 @@ o	int m_rowsleft
 	an int to hold the number of rows left in the level
 o	char m_placedPieces[19][12]
 	a 19x12 character array to hold the placed pieces in the well and the ‘@’ characters in the well of the wall
-•	Member functions
+• Member functions
 o	Game() – Constructor
 	I use a member initialization list to construct m_screen, m_well, m_level, m_score, m_rowsleft, and then I call clearWell() which initializes m_placedPieces[19][12] to ‘@’s where the walls are and spaces in the well
 o	void Play()
