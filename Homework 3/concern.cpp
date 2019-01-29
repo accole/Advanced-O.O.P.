@@ -1,14 +1,10 @@
 //concern.cpp
 //
-//Adam Cole
-//004912373
-//
-//Homework 3
-//Problem 1
+//Homework 3 Problem 1
 
-//#include <iostream>
-//#include <string>
-//using namespace std;
+#include <iostream>
+#include <string>
+using namespace std;
 
 //Your declarations and implementations would go here
 //--------------
@@ -58,30 +54,30 @@ public:
 };
 
 //---------------
-//
-//void display(const Concern* c)
-//{
-//	cout << c->description() << " involving " << c->person();
-//	if (c->possibleFelony())
-//		cout << ", possibly felonious";
-//	cout << endl;
-//}
-//
-//int main()
-//{
-//	Concern* concerns[4];
-//	concerns[0] = new EthicsMatter("Pruitt");
-//	// Hush payments have a person's name and an amount of money (an int).
-//	concerns[1] = new HushPayment("Clifford", 130000);
-//	concerns[2] = new HushPayment("McDougal", 150000);
-//	concerns[3] = new Investigation("Mueller");
-//
-//	cout << "Here are the concerns:" << endl;
-//	for (int k = 0; k < 4; k++)
-//		display(concerns[k]);
-//
-//	// Clean up the concerns before exiting
-//	cout << "Cleaning up:" << endl;
-//	for (int k = 0; k < 4; k++)
-//		delete concerns[k];
-//}
+
+void display(const Concern* c)
+{
+	cout << c->description() << " involving " << c->person();
+	if (c->possibleFelony())
+		cout << ", possibly felonious";
+	cout << endl;
+}
+
+int main()
+{
+	Concern* concerns[4];
+	concerns[0] = new EthicsMatter("Pruitt");
+	// Hush payments have a person's name and an amount of money (an int).
+	concerns[1] = new HushPayment("Clifford", 130000);
+	concerns[2] = new HushPayment("McDougal", 150000);
+	concerns[3] = new Investigation("Mueller");
+
+	cout << "Here are the concerns:" << endl;
+	for (int k = 0; k < 4; k++)
+		display(concerns[k]);
+
+	// Clean up the concerns before exiting
+	cout << "Cleaning up:" << endl;
+	for (int k = 0; k < 4; k++)
+		delete concerns[k];
+}
