@@ -5,11 +5,11 @@ Adam Cole
 
 ------------------------
 
-Homework 1    86/100
+Homework 1  - Namespaces and Includes -  86/100
 
-Homework 2    85/100
+Homework 2  -  Stack and Queue Maze -   85/100
 
-Homework 3    92/100
+Homework 3  - Recursion -  92/100
 
 Homework 4    100/100
 
@@ -19,6 +19,6 @@ Homework 5    100/100
 
 Project 1   95/100
 
-Project 3   100/100
+Project 3  - Tetris -  100/100
 
 Project 4   100/100
