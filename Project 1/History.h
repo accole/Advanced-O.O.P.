@@ -1,9 +1,6 @@
 //history.h
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #ifndef HISTORY_H
 #define HISTORY_H
