@@ -1,9 +1,6 @@
 //city.h
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #ifndef CITY_H
 #define CITY_H
