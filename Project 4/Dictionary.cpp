@@ -1,8 +1,5 @@
 // Dictionary.cpp
-//
-//Adam Cole
-//004912373
-//Project 4
+
 
 // This is a correct but horribly inefficient implementation of Dictionary
 // functionality.  Your job is to change DictionaryImpl to a more efficient
