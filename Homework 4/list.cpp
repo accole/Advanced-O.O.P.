@@ -1,7 +1,5 @@
 //list.cpp
 //
-//Adam Cole
-//004912373
 //Homework 4 Problem 4a
 
 //#include <iostream>
