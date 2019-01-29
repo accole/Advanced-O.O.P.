@@ -1,9 +1,6 @@
 //flatulan.h
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #ifndef FLATULAN_H
 #define FLATULAN_H
