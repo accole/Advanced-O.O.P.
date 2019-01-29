@@ -1,10 +1,6 @@
 //tree.cpp
 //
-//Adam Cole
-//004912373
-//
-//Homework 3
-//Problem 4
+//Homework 3 Problem 4
 
 
 //#include <string>
