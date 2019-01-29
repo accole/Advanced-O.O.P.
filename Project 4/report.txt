@@ -1,0 +1,55 @@
+Project 4 Report
+
+• Data Structure:
+    I implemented an open hash table as my data structure to make this inefficient program quicker.  In order to implement 
+    the open hash table, I created a Bucket struct that acted as Nodes in a linked list within the private data of the 
+    Dictionary implementation.  The data inside the bucket struct included a pointer to the next bucket in the linked list, 
+    a string to hold each word in the dictionary and then another string to hold the sorted version of the word.  Using the 
+    struct to make an open hash table, I created a Bucket pointer array of size 49,999 because 49,999 is the closest prime 
+    number to the maximum number of buckets, 50,000.
+    
+• void DictionaryImpl::insert( string word )
+
+    remove the non-letters in the word
+    
+    if the word is not empty
+    
+        sort the inserted word
+        
+        plug the sorted word into the hash function to get the bucket number
+        
+        access the right bucket through dictionary’s bucket pointer array
+        
+        if the bucket is the null pointer, set the value of the bucket pointer to a new bucket with the inputted word, and 
+            the sorted word.  Then point the next bucket to the null pointer.
+            
+        If the bucket doesn’t point to the null pointer, loop through the linked list until you’re at the last bucket and 
+            add the new Bucket to the end of that list.  Set the string value equal to the inputted word, and the sorted 
+            word to the sorted word.  Then point the next bucket to the null pointer.
+            
+• void DictionaryImpl::lookup( string letters, void callback(string) ) const
+
+    if the callback function points to the null pointer, then return
+    
+    remove the non-letters in the word
+    
+    if the word is empty, return
+    
+    sort the inserted word
+    
+    plug the sorted word into the hash function to get the bucket number
+    
+    access the right bucket through dictionary’s bucket pointer array
+    
+    while the current bucket does not equal the null pointer
+    
+        if the sorted inserted word is equal to the sorted word in the current bucket
+   
+            call the callback function, inputting the unsorted word held in the current bucket
+            
+        move to the next bucket in the liked list
+    
+• Unsigned int DictionaryImpl::hashFunc( const std::string &input ) const
+    Code given to us in the Nachenburg’s Lecture 14 slides
+    
+• No bugs or notable problems – the program might take up a lot of space due to the sheer number of buckets used in our hash table
