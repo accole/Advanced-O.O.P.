@@ -17,7 +17,7 @@ Homework 5  - Trees -  100/100
 
 -------------------------
 
-Project 1   95/100
+Project 1 - Namespaces and Includes -  95/100
 
 Project 3  - Tetris -  100/100
 
