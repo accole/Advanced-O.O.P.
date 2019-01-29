@@ -1,10 +1,7 @@
 //mazesqueue.cpp
 //
-//Homework 2
-//problem 3
-//
-//Adam Cole
-//004912373
+//Homework 2 problem 3
+
 
 #include <queue>
 #include <iostream>
@@ -22,76 +19,76 @@ private:
 };
 
 //Queue Class
-//using ItemType = Coord;
-//
-//class Queue {
-//public:
-//	Queue() { m_head = nullptr; m_tail = m_head; m_elements = 0; }
-//	void enqueue(ItemType a) {
-//		//insert the item at the end of the queue
-//		Node* temp = new Node;
-//		temp->value = a;
-//		//check if empty list
-//		if (m_head == nullptr) {
-//			m_head = temp;
-//			temp->next = nullptr;
-//			m_tail = temp;
-//			return;
-//		}
-//		Node* trav = m_head;
-//		while (trav->next != nullptr) {
-//			trav = trav->next;
-//		}
-//		trav->next = temp;
-//		temp->next = nullptr;
-//		m_tail = temp;
-//		m_elements++;
-//	}
-//	ItemType dequeue() {
-//		//removes and returns the top item from the front of the queue
-//		Node* temp = m_head;
-//		m_head = m_head->next;
-//		ItemType val = temp->value;
-//		delete temp;
-//		m_elements--;
-//		return val;
-//	}
-//	bool isEmpty() {return (m_elements == 0);}
-//	int size() {return m_elements;}
-//	ItemType getFront() {return m_head->value;}
-//private:
-//	struct Node {
-//		ItemType value;
-//		Node* next;
-//	};
-//	Node* m_head;
-//	Node* m_tail;
-//	int m_elements;
-//};
+using ItemType = Coord;
+
+class Queue {
+public:
+	Queue() { m_head = nullptr; m_tail = m_head; m_elements = 0; }
+	void enqueue(ItemType a) {
+		//insert the item at the end of the queue
+		Node* temp = new Node;
+		temp->value = a;
+		//check if empty list
+		if (m_head == nullptr) {
+			m_head = temp;
+			temp->next = nullptr;
+			m_tail = temp;
+			return;
+		}
+		Node* trav = m_head;
+		while (trav->next != nullptr) {
+			trav = trav->next;
+		}
+		trav->next = temp;
+		temp->next = nullptr;
+		m_tail = temp;
+		m_elements++;
+	}
+	ItemType dequeue() {
+		//removes and returns the top item from the front of the queue
+		Node* temp = m_head;
+		m_head = m_head->next;
+		ItemType val = temp->value;
+		delete temp;
+		m_elements--;
+		return val;
+	}
+	bool isEmpty() {return (m_elements == 0);}
+	int size() {return m_elements;}
+	ItemType getFront() {return m_head->value;}
+private:
+	struct Node {
+		ItemType value;
+		Node* next;
+	};
+	Node* m_head;
+	Node* m_tail;
+	int m_elements;
+};
 
 //methods
-//bool pathExists(char maze[][10], int sr, int sc, int er, int ec);
+bool pathExists(char maze[][10], int sr, int sc, int er, int ec);
 
 //int main
-//int main() {
-//	char maze[10][10] = {
-//		{ 'X','X','X','X','X','X','X','X','X','X' },
-//	{ 'X','.','.','.','.','.','.','.','.','X' },
-//	{ 'X','X','X','X','X','.','X','.','X','X' },
-//	{ 'X','.','.','.','X','.','X','.','.','X' },
-//	{ 'X','.','X','.','.','.','X','.','.','X' },
-//	{ 'X','.','X','X','X','.','X','X','X','X' },
-//	{ 'X','X','X','.','.','.','.','X','.','X' },
-//	{ 'X','.','X','X','.','X','X','X','.','X' },
-//	{ 'X','.','.','.','.','X','.','.','.','X' },
-//	{ 'X','X','X','X','X','X','X','X','X','X' }
-//	};
-//
-//	if (pathExists(maze, 6, 5, 1, 8))
-//		cout << "Solvable!" << endl;
-//	else
-//		cout << "Out of luck!" << endl;
-//}
+int main() {
+	char maze[10][10] = {
+		{ 'X','X','X','X','X','X','X','X','X','X' },
+	{ 'X','.','.','.','.','.','.','.','.','X' },
+	{ 'X','X','X','X','X','.','X','.','X','X' },
+	{ 'X','.','.','.','X','.','X','.','.','X' },
+	{ 'X','.','X','.','.','.','X','.','.','X' },
+	{ 'X','.','X','X','X','.','X','X','X','X' },
+	{ 'X','X','X','.','.','.','.','X','.','X' },
+	{ 'X','.','X','X','.','X','X','X','.','X' },
+	{ 'X','.','.','.','.','X','.','.','.','X' },
+	{ 'X','X','X','X','X','X','X','X','X','X' }
+	};
+
+	if (pathExists(maze, 6, 5, 1, 8))
+		cout << "Solvable!" << endl;
+	else
+		cout << "Out of luck!" << endl;
+}
 
 //south = increasing r
 //north = decreasing r
