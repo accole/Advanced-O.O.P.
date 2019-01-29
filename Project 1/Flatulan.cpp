@@ -1,9 +1,6 @@
 //flatulan.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #include "Flatulan.h"
 #include "globals.h"
