@@ -1,9 +1,6 @@
 //player.h
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #ifndef PLAYER_H
 #define PLAYER_H
