@@ -1,24 +1,20 @@
 //maze.cpp
 //
-//Adam Cole
-//004912373
-//
-//Homework 3
-//Problem 3
+//Homework 3 Problem 3
 
-//#include <iostream>
-//using namespace std;
+#include <iostream>
+using namespace std;
 
-//Coord class
-//class Coord {
-//public:
-//	Coord(int rr = 0, int cc = 0) : m_r(rr), m_c(cc) {}	//constructor
-//	int r() const { return m_r; }	//return row
-//	int c() const { return m_c; }	//return col
-//private:
-//	int m_r;		//row
-//	int m_c;		//column
-//};
+Coord class
+class Coord {
+public:
+	Coord(int rr = 0, int cc = 0) : m_r(rr), m_c(cc) {}	//constructor
+	int r() const { return m_r; }	//return row
+	int c() const { return m_c; }	//return col
+private:
+	int m_r;		//row
+	int m_c;		//column
+};
 
 //south = increasing r
 //north = decreasing r
@@ -70,23 +66,23 @@ bool pathExists(char maze[][10], int sr, int sc, int er, int ec) {
 //					then return true.
 //	Return false.
 
-//int main
-//int main() {
-//	char maze[10][10] = {
-//		{ 'X','X','X','X','X','X','X','X','X','X' },
-//	{ 'X','.','.','.','.','.','.','.','.','X' },
-//	{ 'X','X','X','X','X','.','X','.','X','X' },
-//	{ 'X','.','.','.','X','.','X','.','.','X' },
-//	{ 'X','.','X','.','.','.','X','.','.','X' },
-//	{ 'X','.','X','X','X','.','X','X','X','X' },
-//	{ 'X','X','X','.','.','.','.','X','.','X' },
-//	{ 'X','.','X','X','.','X','X','X','.','X' },
-//	{ 'X','.','.','.','.','X','.','.','.','X' },
-//	{ 'X','X','X','X','X','X','X','X','X','X' }
-//	};
-//
-//	if (pathExists(maze, 6, 5, 1, 8))
-//		cout << "Solvable!" << endl;
-//	else
-//		cout << "Out of luck!" << endl;
-//}
+int main
+int main() {
+	char maze[10][10] = {
+		{ 'X','X','X','X','X','X','X','X','X','X' },
+	{ 'X','.','.','.','.','.','.','.','.','X' },
+	{ 'X','X','X','X','X','.','X','.','X','X' },
+	{ 'X','.','.','.','X','.','X','.','.','X' },
+	{ 'X','.','X','.','.','.','X','.','.','X' },
+	{ 'X','.','X','X','X','.','X','X','X','X' },
+	{ 'X','X','X','.','.','.','.','X','.','X' },
+	{ 'X','.','X','X','.','X','X','X','.','X' },
+	{ 'X','.','.','.','.','X','.','.','.','X' },
+	{ 'X','X','X','X','X','X','X','X','X','X' }
+	};
+
+	if (pathExists(maze, 6, 5, 1, 8))
+		cout << "Solvable!" << endl;
+	else
+		cout << "Out of luck!" << endl;
+}
