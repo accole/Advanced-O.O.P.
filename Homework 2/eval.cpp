@@ -1,10 +1,6 @@
 //eval.cpp
 //
-//Problem 5
-//HW 2
-//
-//Adam Cole
-//004912373
+//Homework 2 Problem 5
 
 //includes
 #include <string>
@@ -301,21 +297,21 @@ bool greaterPrecedence(char a, char s) {
 	return false;
 }
 //testing purposes
-//int main() {
-//	string pf;
-//	bool answer;
-//	assert(evaluate("T| F", pf, answer) == 0 && pf == "TF|"  &&  answer);
-//	assert(evaluate("T|", pf, answer) == 1);
-//	assert(evaluate("F F", pf, answer) == 1);
-//	assert(evaluate("TF", pf, answer) == 1);
-//	assert(evaluate("()", pf, answer) == 1);
-//	assert(evaluate("T(F|T)", pf, answer) == 1);
-//	assert(evaluate("T(&T)", pf, answer) == 1);
-//	assert(evaluate("(T&(F|F)", pf, answer) == 1);
-//	assert(evaluate("", pf, answer) == 1);
-//	assert(evaluate("F  |  !F & (T&F) ", pf, answer) == 0
-//		&& pf == "FF!TF&&|" && !answer);
-//	assert(evaluate(" F  ", pf, answer) == 0 && pf == "F" && !answer);
-//	assert(evaluate("((T))", pf, answer) == 0 && pf == "T"  &&  answer);
-//	cout << "Passed all tests" << endl;
-//}
+int main() {
+	string pf;
+	bool answer;
+	assert(evaluate("T| F", pf, answer) == 0 && pf == "TF|"  &&  answer);
+	assert(evaluate("T|", pf, answer) == 1);
+	assert(evaluate("F F", pf, answer) == 1);
+	assert(evaluate("TF", pf, answer) == 1);
+	assert(evaluate("()", pf, answer) == 1);
+	assert(evaluate("T(F|T)", pf, answer) == 1);
+	assert(evaluate("T(&T)", pf, answer) == 1);
+	assert(evaluate("(T&(F|F)", pf, answer) == 1);
+	assert(evaluate("", pf, answer) == 1);
+	assert(evaluate("F  |  !F & (T&F) ", pf, answer) == 0
+		&& pf == "FF!TF&&|" && !answer);
+	assert(evaluate(" F  ", pf, answer) == 0 && pf == "F" && !answer);
+	assert(evaluate("((T))", pf, answer) == 0 && pf == "T"  &&  answer);
+	cout << "Passed all tests" << endl;
+}
