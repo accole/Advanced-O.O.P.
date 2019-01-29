@@ -1,7 +1,5 @@
 //odds.cpp
 //
-//Adam Cole
-//004912373
 //Homework 4 Problem 3a
 
 // Remove the odd integers from v.
