@@ -1,8 +1,6 @@
 // Sequence.h
 //
-//Adam Cole
 //Homework 4 problem 1
-//004912373
 
 
 template<typename ItemType>
