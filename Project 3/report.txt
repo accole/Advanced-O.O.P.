@@ -8,159 +8,205 @@ Well.h / Well.cpp
 
 Piece.h / Piece.cpp
   • Private Data
-    o	char boundingbox[4][4]
+    char boundingbox[4][4]
       	A 4x4 character array to hold the current orientation of every piece
-    o	int xpos, int ypos
+    int xpos, int ypos
       	ints to hold the x and y coordinates of the [0][0] element of the bounding box
       	serves as a way to relate the piece to the location on the screen
-    o	bool place
+    bool place
       	Boolean value determining whether the piece is placed or not
-    o	PieceType x
+    PieceType x
       	Type of piece the piece is
-    o	int m_orientation
+    int m_orientation
       	int value of which orientation the piece is currently in
-    o	Struct Node{ char o[4][4]; Node* next; }
+    Struct Node{ char o[4][4]; Node* next; }
       	Linked list, where the value in the linked list is a 4x4 character array with orientations 0-3 in one of the 4 nodes
-    o	Node* m_head
+    Node* m_head
       	Head node pointing to the Node with the current orientation
   • Member functions
-    o	Piece() – Constructor
-    o	Piece(const Piece& other) – Copy Constructor
-    o	int getX() const
+    Piece() – Constructor
+    Piece(const Piece& other) – Copy Constructor
+    int getX() const
       	accesses the xpos private data
-    o	int getY() const
+    int getY() const
       	access the ypos private data
-    o	void incrementX()
+    void incrementX()
       	moves the x position one to the right
-    o	void decrement()
+    void decrement()
       	moves the x position one to the left
-    o	void moveDown()
+    void moveDown()
       	moves the y position one further down the well
-    o	void rotate()
+    void rotate()
       	calls next() which moves m_head to the next orientation, and then calls orientation2boundingbox() which updates the 
         boundingbox[4][4] private data member to the new orientation
-    o	bool placed() const
+    bool placed() const
       	returns true if the piece is placed in the well, false otherwise
-    o	char getbox(int x, int y) const
+    char getbox(int x, int y) const
       	Accesses the [x][y] element of the bounding box
-    o	PieceType getType() const
+    PieceType getType() const
       	Accesses the PieceType of the piece
-    o	int getOrientation() const
+    int getOrientation() const
       	Returns the orientation of the piece
-    o	void setplace(bool placed)
+    void setplace(bool placed)
       	Sets private data place = to input placed
-    o	void setType(PieceType s)
+    void setType(PieceType s)
       	sets the piecetype of the piece equal to s
       	protected function since it is only used by derived classes to modify the private data of a piece
-    o	virtual ~Piece() – Destructor
+    virtual ~Piece() – Destructor
       	loops through the linked list of orientations and deletes each of the orientation nodes.
       	Marked virtual because it is the superclass destructor and must be marked non-pure virtual
-    o	virtual void moveRight()
+    virtual void moveRight()
       	calls incrementX() which moves the piece to the right one index
       	marked non-pure virtual because for CrazyPieces, the functions are overwritten and when moveRight() is called, 
         decrementX() is actually called.
-    o	virtual void moveLeft()
+    virtual void moveLeft()
       	calls decrementX() which moves the piece to the right one index
       	marked non-pure virtual because for CrazyPieces, the functions are overwritten and when moveLeft() is called, 
         incrementX() is actually called.
-    o	void addChar( int row, int col, char a)
+    void addChar( int row, int col, char a)
       	adds a character to the m_head’s char o[4][4]
       	marked Protected because it is only used by the derived classes to update the 4 orientations according to each piece
-    o	void orientation2boundingbox()
+    void orientation2boundingbox()
       	updates the private data boundingbox to the value in the current m_head node
       	Protected because only the derived subclasses will call it to initialize the bounding box to the correct orientation
         and when rotate is called
-    o	void next()
+    void next()
       	increment m_head to point to the next orientation in the linked list
       	marked Protected because the only time next() is called is when rotate() is called
-    o	Ipiece(), Opiece(), Jpiece(), Tpiece(), Lpiece(), Spiece(), Zpiece(), VaporBomb(), FoamBomb(), CrazyShape() – Constructors
+    Ipiece(), Opiece(), Jpiece(), Tpiece(), Lpiece(), Spiece(), Zpiece(), VaporBomb(), FoamBomb(), CrazyShape() – Constructors
       	Each derived class’s constructors sets the correct piecetype, and loops through the 4 orientation nodes using 
         addChar() to update the correct orientations in order.  Then it calls orientation2boundingbox to update the current 
         orientation to orientation 0
-    o	~Ipiece(), ~Opiece(), ~Jpiece(), ~Tpiece(), ~Lpiece(), ~Spiece(), ~Zpiece(), ~VaporBomb(), ...  – Destructors
+    ~Ipiece(), ~Opiece(), ~Jpiece(), ~Tpiece(), ~Lpiece(), ~Spiece(), ~Zpiece(), ~VaporBomb(), ...  – Destructors
       	Nothing written in the destructor – superclass’s virtual destructor takes care of all “newed” orientation nodes
 
 
 
 Game.h / Game.cpp
   • Private Data
-    o	Well m_well
+    Well m_well
       	Given to us in the skeleton
-    o	Screen m_screen
+    Screen m_screen
       	Given to us in the skeleton
-    o	int m_level 
+    int m_level 
       	an integer value to hold the current level number
       	Given to us in the skeleton
-    o	int m_score
+    int m_score
       	an int value to hold the current score
-    o	int m_rowsleft
+    int m_rowsleft
       	an int to hold the number of rows left in the level
-    o	char m_placedPieces[19][12]
+    char m_placedPieces[19][12]
       	a 19x12 character array to hold the placed pieces in the well and the ‘@’ characters in the well of the wall
   • Member functions
-    o	Game() – Constructor
-      	I use a member initialization list to construct m_screen, m_well, m_level, m_score, m_rowsleft, and then I call clearWell() which initializes m_placedPieces[19][12] to ‘@’s where the walls are and spaces in the well
-    o	void Play()
+    Game() – Constructor
+      	I use a member initialization list to construct m_screen, m_well, m_level, m_score, m_rowsleft, and then I call 
+        clearWell() which initializes m_placedPieces[19][12] to ‘@’s where the walls are and spaces in the well
+    void Play()
       	don’t modify anything from the method given to us in the skeleton
-    o	void displayPrompt(std::string s)
+    void displayPrompt(std::string s)
       	don’t modify anything from the method given to us in the skeleton
-    o	void displayStatus()
-      	using the gotoXY() function and printstring, I print out the titles and values of the score, rows left, and level.  I right justify by subtracting the length of the string printed from 34 to place the outputs at the correct x coordinate of the screen.
-    o	void playOneLevel()
-      	I begin each level by calling clearWell() which empties the well but keeps the well display.  I then create two Piece* pointers called current and next, utilizing polymorphism and set current = to a ‘new’ piece depending on the function given to us chooseRandomPieceType().  Then, I set the rowsleft to 5 x m_level and while (m_rowsleft != 0), new pieces will fall.  
-      	Within that while loop, I ‘new’ another random piece and begin another while loop that loops while the current piece is falling down the well.  I display the game with the current piece at the initial position.  I then test if the piece overlaps another placed piece already by calling an overlap() function.  If it overlaps, I delete the pieces and return false, ending the level.  
-      	Next, I start a timer and begin a while loop and switch statement to test for any keystrokes by the user that is given to us in the spec.  As with overlap, if Q is pressed, the pieces will be deleted and returned false.  If the user presses the left key, a function to test if the piece can move is called and will move the piece left unless it is a crazy piece, which will be moved right.  If the user presses the right key, a function to test if the piece can move is called and will move the piece right unless it is a crazy piece, which will be moved left.  If the user presses the up arrow, it rotates the piece and then tests if it overlaps any walls or other pieces.  If it does, it goes back to the original orientation, else it is left rotated.  If the user presses the down arrow, a function that tests if the piece can move down is called, and if it can it moves the piece down.  Otherwise, the piece is added to the well, its special action is called, and the next piece begins to fall outside of the while loop.  If the user presses the space bar, it will move the piece down until it can’t anymore and then add it to the well and calls its special action.  Inside the charIfAny(), I display the piece so each keystroke displays the piece.  
-      	After the timer while loop, If the piece didn’t get placed inside the while loop, it will test if it should be.  If it should, the piece will be added and its special action called.  Else, the piece will move down one position.  
-      	Outside of the while loop that loops while a piece is falling, I first delete the current piece, set current = to the next piece, and vaporize any rows if they are full, decreasing m_rowsleft and increasing the score.  If there are still rows left, at the beginning of the while loop a next piece is randomly assigned and ‘newed’ again.  This will repeat until there are no longer rows left to be cleared.  
+    void displayStatus()
+      	using the gotoXY() function and printstring, I print out the titles and values of the score, rows left, and level.  
+        I right justify by subtracting the length of the string printed from 34 to place the outputs at the correct x 
+        coordinate of the screen.
+    void playOneLevel()
+      	I begin each level by calling clearWell() which empties the well but keeps the well display.  I then create two 
+        Piece* pointers called current and next, utilizing polymorphism and set current = to a ‘new’ piece depending on the 
+        function given to us chooseRandomPieceType().  Then, I set the rowsleft to 5 x m_level and while (m_rowsleft != 0), 
+        new pieces will fall.  
+      	Within that while loop, I ‘new’ another random piece and begin another while loop that loops while the current piece 
+        is falling down the well.  I display the game with the current piece at the initial position.  I then test if the piece 
+        overlaps another placed piece already by calling an overlap() function.  If it overlaps, I delete the pieces and return 
+        false, ending the level.  
+      	Next, I start a timer and begin a while loop and switch statement to test for any keystrokes by the user that is given 
+        to us in the spec.  As with overlap, if Q is pressed, the pieces will be deleted and returned false.  If the user presses 
+        the left key, a function to test if the piece can move is called and will move the piece left unless it is a crazy piece, 
+        which will be moved right.  If the user presses the right key, a function to test if the piece can move is called and 
+        will move the piece right unless it is a crazy piece, which will be moved left.  If the user presses the up arrow, it 
+        rotates the piece and then tests if it overlaps any walls or other pieces.  If it does, it goes back to the original
+        orientation, else it is left rotated.  If the user presses the down arrow, a function that tests if the piece can move down 
+        is called, and if it can it moves the piece down.  Otherwise, the piece is added to the well, its special action is called, 
+        and the next piece begins to fall outside of the while loop.  If the user presses the space bar, it will move the piece 
+        down until it can’t anymore and then add it to the well and calls its special action.  Inside the charIfAny(), I display 
+        the piece so each keystroke displays the piece.  
+      	After the timer while loop, If the piece didn’t get placed inside the while loop, it will test if it should be.  If it 
+        should, the piece will be added and its special action called.  Else, the piece will move down one position.  
+      	Outside of the while loop that loops while a piece is falling, I first delete the current piece, set current = to the
+        next piece, and vaporize any rows if they are full, decreasing m_rowsleft and increasing the score.  If there are still 
+        rows left, at the beginning of the while loop a next piece is randomly assigned and ‘newed’ again.  This will repeat 
+        until there are no longer rows left to be cleared.  
       	The game is then displayed one last time, and all the pieces are deleted and return true.
-    o	void displayPiece( Piece* s )
+    void displayPiece( Piece* s )
       	displays one piece on the screen at its position
-      	loops through the boundingbox of the piece and displays the ‘#’ characters to the correct x coordinate and y coordinate of the screen by using the gotoXY() and printChar() functions
-    o	void displayPiece( Piece* s , int x , int y )
+      	loops through the boundingbox of the piece and displays the ‘#’ characters to the correct x coordinate and y coordinate 
+        of the screen by using the gotoXY() and printChar() functions
+    void displayPiece( Piece* s , int x , int y )
       	overloaded function from the above function
       	difference is that it displays the piece at the x,y coordinate input
-    o	void addPiece( Piece* s )
+    void addPiece( Piece* s )
       	called only when the piece needs to be added to the well
-      	loops through the boundingbox of the Piece and for every character that isn’t a space, a ‘$’ is added to m_placedPieces[][] at the respective x,y coordinate as well as where in the boundingbox it is.
-    o	void clearWell()
+      	loops through the boundingbox of the Piece and for every character that isn’t a space, a ‘$’ is added to m_placedPieces[][] 
+        at the respective x,y coordinate as well as where in the boundingbox it is.
+    void clearWell()
       	initializes the m_placedPieces well character array to the well walls and all empty characters otherwise
-    o	bool specialAction( Piece* s )
-      	checks if the piece has a special action, if it does, do the special action and modify the well and return true.  If it doesn’t, do nothing and return false
-      	the function decides if there is a special action by using getType() piece member function.  If it is a vapor piece, it clears out the 4 elements above and below where it was placed and checks for violating the bounds of the array.  If it is a foam piece, foam piece’s recursive function is called and nothing else.
-    o	bool recursiveFoam( Piece* s, int sx, int sy )
+    bool specialAction( Piece* s )
+      	checks if the piece has a special action, if it does, do the special action and modify the well and return true.  If it 
+        doesn’t, do nothing and return false
+      	the function decides if there is a special action by using getType() piece member function.  If it is a vapor piece, 
+        it clears out the 4 elements above and below where it was placed and checks for violating the bounds of the array.  If 
+        it is a foam piece, foam piece’s recursive function is called and nothing else.
+    bool recursiveFoam( Piece* s, int sx, int sy )
       	precondition: the recursive call is a valid space to be reached
-      	this method is a recursive function that changes each point within the 5x5 surrounding box around the placement of the foam bomb that can be accessed to a ‘*’.
-      	It begins by setting m_placedPieces[sx][sy] = ‘*’ then tests the four directions around sx, sy if they are valid to be moved to, validated by validRecursion which tests the bounds of the well and the 5x5 bounds.  If its valid, it tests if there is already character there that isn’t a space.  If it’s a space, it recursively calls recursiveFoam() to that next position.
+      	this method is a recursive function that changes each point within the 5x5 surrounding box around the placement of 
+        the foam bomb that can be accessed to a ‘*’.
+      	It begins by setting m_placedPieces[sx][sy] = ‘*’ then tests the four directions around sx, sy if they are valid to 
+        be moved to, validated by validRecursion which tests the bounds of the well and the 5x5 bounds.  If its valid, it tests 
+        if there is already character there that isn’t a space.  If it’s a space, it recursively calls recursiveFoam() to 
+        that next position.
       	The base case is return false, so everytime this function will return false.
-    o	bool validRecursion( Piece* s, int sx, int sy )
+    bool validRecursion( Piece* s, int sx, int sy )
       	tests for if sx or sy is valid for the recursive call
-      	tests sx and sy for exceeding the bounds of the well walls and exceeding the 5x5 bounds around the original placement of the foam bomb
-    o	int numFull()
+      	tests sx and sy for exceeding the bounds of the well walls and exceeding the 5x5 bounds around the original placement 
+        of the foam bomb
+    int numFull()
       	returns the number of full rows in the well
-      	loops through the 18 rows in the well, and if fullRow(int row) returns true, an int counter is increased by one.  After the for loop the int is returned.
-    o	void clearRows()
+      	loops through the 18 rows in the well, and if fullRow(int row) returns true, an int counter is increased by one.  
+        After the for loop the int is returned.
+    void clearRows()
       	clears the rows that are full and moves the pieces left in the well down to the bottom
-      	loops through all 18 rows and tests if they are full by calling fullRow().  If they are full, I for loop from the full row up to the top, and copy the row above’s values into the elements below.  I then initialize the top row to be all empty.
-    o	bool fullRow( int row )
+      	loops through all 18 rows and tests if they are full by calling fullRow().  If they are full, I for loop from the 
+        full row up to the top, and copy the row above’s values into the elements below.  I then initialize the top row to 
+        be all empty.
+    bool fullRow( int row )
       	returns true if the row is full, false otherwise
-      	for loops down the row, and if any characters in the row are spaces, return false because there’s an empty space in the row.  Else, return true.
-    o	bool wallBelowPiece ( Piece* s )
+      	for loops down the row, and if any characters in the row are spaces, return false because there’s an empty space 
+        in the row.  Else, return true.
+    bool wallBelowPiece ( Piece* s )
       	returns true if the piece shouldn’t be able to move down, false if it can.
-      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece one row below it in the well.  If there is return true.  If it passes through the whole for loop, return false.
-    o	bool wallNextToPiece( Piece* s, char a )
+      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece one 
+        row below it in the well.  If there is return true.  If it passes through the whole for loop, return false.
+    bool wallNextToPiece( Piece* s, char a )
       	Precondition: char a is either ‘R’ for testing the right wall, or anything else to test the left wall.
-      	Postcondition: returns true if the piece shouldn’t be able to move right/left depending on char a, false if the piece can
-      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece one column to the right or left of it in the well.  If there is return true.  If it passes through the whole for loop, return false.
-    o	bool overlap( Piece* s )
+      	Postcondition: returns true if the piece shouldn’t be able to move right/left depending on char a, false 
+        if the piece can
+      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece 
+        one column to the right or left of it in the well.  If there is return true.  If it passes through the whole for 
+        loop, return false.
+    bool overlap( Piece* s )
       	returns true if the piece overlaps another placed piece in the well, false otherwise.
-      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece at the same spot in the well.  If there is return true.  If it passes through the whole for loop, return false.
-    o	void displayPlacePieces()
-      	displays the placed pieces in the well by looping through m_placedPieces and uses gotoXY() and printChar() to display the characters to the screen when called.
-    o	void displayGame( Piece* current, Piece* next )
+      	Loops through the 4x4 character array in piece’s private data and for every “#” sign tests if there is a piece at 
+        the same spot in the well.  If there is return true.  If it passes through the whole for loop, return false.
+    void displayPlacePieces()
+      	displays the placed pieces in the well by looping through m_placedPieces and uses gotoXY() and printChar() to 
+        display the characters to the screen when called.
+    void displayGame( Piece* current, Piece* next )
       	displays everything in the game, so to display everything I only need to call this function in playOneLevel().
-      	Clears the screen first, then displays the well. Next it displays the score, m_rowsleft, and level by calling displayStatus().  Then I display the prompt, then I display the next piece title and the next piece by calling displayPiece().  Then I display the placed pieces, and finally I display the current falling piece by calling displayPieces().
-    o	void displayGame( Piece* next )
+      	Clears the screen first, then displays the well. Next it displays the score, m_rowsleft, and level by calling 
+        displayStatus().  Then I display the prompt, then I display the next piece title and the next piece by calling 
+        displayPiece().  Then I display the placed pieces, and finally I display the current falling piece by calling 
+        displayPieces().
+    void displayGame( Piece* next )
       	overloaded function from above that displays everything the same as above except the current piece.
       	Used to call once the end of a level is reached.
-    o	int maximum(int x, int y)
+    int maximum(int x, int y)
       	regular maximum function, returns true if x > y, false otherwise.
