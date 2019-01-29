@@ -1,9 +1,6 @@
 //player.cpp
 //---------
-//Adam Cole
-//004912373
-//Discusssion 1E
-//---------
+
 
 #include "Player.h"
 #include "globals.h"
