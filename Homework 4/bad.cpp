@@ -1,7 +1,5 @@
 //bad.cpp
-//
-//Adam Cole
-//004912373
+
 //Homework 4 Problem 3b
 
 //#include <list>
